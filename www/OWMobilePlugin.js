@@ -1,13 +1,45 @@
-var exec = require('cordova/exec');
+/**
+ * OWMobilePlugin
+ * @constructor
+ */
+function OWMobilePlugin(pluginName) {
+    this.version = 1;
+    this.pluginName = pluginName;
+}
 
-exports.login = function (success, error) {
-  exec(success, error, 'OWMobilePlugin', 'login', []);
+
+/**
+ * login using OW
+ * @param successCallback
+ * @param errorCallback
+ */
+OWMobilePlugin.prototype.login = function(successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, this.pluginName, 'login', []);
 };
 
-exports.logout = function (success, error) {
-  exec(success, error, 'OWMobilePlugin', 'logout', []);
+/**
+ * logout using OW
+ * @param successCallback
+ * @param errorCallback
+ */
+OWMobilePlugin.prototype.logout = function(successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, this.pluginName, 'logout', []);
 };
 
-exports.register = function (success, error) {
-  exec(success, error, 'OWMobilePlugin', 'register', []);
+/**
+ * register using OW
+ * @param username
+ * @param password
+ * @param successCallback
+ * @param errorCallback
+ */
+OWMobilePlugin.prototype.register = function(username, password, successCallback, errorCallback) {
+    cordova.exec(successCallback, errorCallback, this.pluginName, 'register', [username, password]);
 };
+
+
+/**
+ * export default OWMobilePlugin
+ * @type {OWMobilePlugin}
+ */
+module.exports = new OWMobilePlugin('OWMobilePlugin');

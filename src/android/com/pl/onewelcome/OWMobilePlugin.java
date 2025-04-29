@@ -10,24 +10,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 
-public void showAlert(final Context context, final String message) {
-    // Run on UI thread (required for UI changes)
-    ((Activity) context).runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            new AlertDialog.Builder(context)
-                .setTitle("Alert")
-                .setMessage(message)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss(); // Close the dialog
-                    }
-                })
-                .setCancelable(true)
-                .show();
-        }
-    });
-}
 
 public class OWMobilePlugin extends CordovaPlugin {
 
@@ -65,4 +47,23 @@ public class OWMobilePlugin extends CordovaPlugin {
     callbackContext.success("Register triggered from native Android!");
     showAlert(cordova.getActivity(), "Register triggered from native Android!");
   }
+
+    private void showAlert(final Context context, final String message) {
+        ((Activity) context).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                new AlertDialog.Builder(context)
+                    .setTitle("Login")
+                    .setMessage(message)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setCancelable(true)
+                    .show();
+            }
+        });
+    }
+
 }

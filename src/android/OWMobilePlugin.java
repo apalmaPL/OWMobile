@@ -1,32 +1,43 @@
 package cordova-ow-plugin;
 
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CallbackContext;
+import org.apache.cordova.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * This class echoes a string called from JavaScript.
- */
+
 public class OWMobilePlugin extends CordovaPlugin {
 
-    @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("coolMethod")) {
-            String message = args.getString(0);
-            this.coolMethod(message, callbackContext);
-            return true;
-        }
-        return false;
+  @Override
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    if ("login".equals(action)) {
+      this.login(callbackContext);
+      return true;
     }
+    if ("logout".equals(action)) {
+      this.logout(callbackContext);
+      return true;
+    }
+    if ("register".equals(action)) {
+      this.register(callbackContext);
+      return true;
+    }
+    return false;
+  }
 
-    private void coolMethod(String message, CallbackContext callbackContext) {
-        if (message != null && message.length() > 0) {
-            callbackContext.success(message);
-        } else {
-            callbackContext.error("Expected one non-empty string argument.");
-        }
-    }
+  private void login(CallbackContext callbackContext) {
+    // TODO: Integrate OneWelcome Android SDK login here
+    callbackContext.success("Login triggered from native Android!");
+  }
+
+  private void logout(CallbackContext callbackContext) {
+    // TODO: Integrate OneWelcome Android SDK login here
+    callbackContext.success("Logout triggered from native Android!");
+  }
+
+  private void register(CallbackContext callbackContext) {
+    // TODO: Integrate OneWelcome Android SDK login here
+    callbackContext.success("Register triggered from native Android!");
+  }
 }

@@ -2,8 +2,9 @@
 <plugin id="cordova-ow-plugin" version="1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>OWMobilePlugin</name>
+    
     <js-module name="OWMobilePlugin" src="www/OWMobilePlugin.js">
-        <clobbers target="cordova.plugins.OWMobilePlugin" />
+        <clobbers target="OWMobilePlugin" />
     </js-module>
   
     <platform name="android">

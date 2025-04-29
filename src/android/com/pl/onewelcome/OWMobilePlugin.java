@@ -1,15 +1,15 @@
 package com.pl.onewelcome;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.app.Activity;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-
 
 public class OWMobilePlugin extends CordovaPlugin {
 
@@ -32,20 +32,24 @@ public class OWMobilePlugin extends CordovaPlugin {
 
   private void login(CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
+    
+    final Context context = cordova.getActivity();
+    // Show native Android alert
+    showAlert(context, "Login triggered from Cordova!");
+
     callbackContext.success("Login triggered from native Android!");
-    showAlert(cordova.getActivity(), "Login triggered from native Android!");
   }
 
   private void logout(CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
     callbackContext.success("Logout triggered from native Android!");
-    showAlert(cordova.getActivity(), "Logout triggered from native Android!");
+
   }
 
   private void register(CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
     callbackContext.success("Register triggered from native Android!");
-    showAlert(cordova.getActivity(), "Register triggered from native Android!");
+
   }
 
     private void showAlert(final Context context, final String message) {
@@ -53,7 +57,7 @@ public class OWMobilePlugin extends CordovaPlugin {
             @Override
             public void run() {
                 new AlertDialog.Builder(context)
-                    .setTitle("Login")
+                    .setTitle("OneWelcome Login")
                     .setMessage(message)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

@@ -1,12 +1,11 @@
 package com.pl.onewelcome;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.app.Activity;
-
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+
+import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,10 +31,8 @@ public class OWMobilePlugin extends CordovaPlugin {
 
   private void login(CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
-    
-    final Context context = cordova.getActivity();
-    // Show native Android alert
-    showAlert(context, "Login triggered from Cordova!");
+    Log.d("OneWelcomePlugin", "Login method called!");
+    Toast.makeText(activity, "Cordova login triggered", Toast.LENGTH_SHORT).show();
 
     callbackContext.success("Login triggered from native Android!");
   }
@@ -52,22 +49,6 @@ public class OWMobilePlugin extends CordovaPlugin {
 
   }
 
-    private void showAlert(final Context context, final String message) {
-        ((Activity) context).runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                new AlertDialog.Builder(context)
-                    .setTitle("OneWelcome Login")
-                    .setMessage(message)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .setCancelable(true)
-                    .show();
-            }
-        });
-    }
+  
 
 }

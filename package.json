@@ -1,5 +1,5 @@
 {
-  "name": "owmobileplugin",
+  "name": "OWMobilePlugin",
   "version": "1.0.0",
   "description": "OW sdk for mobile.",
   "main": "index.js",

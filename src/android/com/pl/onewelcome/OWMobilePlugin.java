@@ -6,7 +6,28 @@ import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 
+public void showAlert(final Context context, final String message) {
+    // Run on UI thread (required for UI changes)
+    ((Activity) context).runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            new AlertDialog.Builder(context)
+                .setTitle("Alert")
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss(); // Close the dialog
+                    }
+                })
+                .setCancelable(true)
+                .show();
+        }
+    });
+}
 
 public class OWMobilePlugin extends CordovaPlugin {
 
@@ -30,15 +51,18 @@ public class OWMobilePlugin extends CordovaPlugin {
   private void login(CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
     callbackContext.success("Login triggered from native Android!");
+    showAlert(cordova.getActivity(), "Login triggered from native Android!");
   }
 
   private void logout(CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
     callbackContext.success("Logout triggered from native Android!");
+    showAlert(cordova.getActivity(), "Logout triggered from native Android!");
   }
 
   private void register(CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
     callbackContext.success("Register triggered from native Android!");
+    showAlert(cordova.getActivity(), "Register triggered from native Android!");
   }
 }

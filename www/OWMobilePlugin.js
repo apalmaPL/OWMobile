@@ -1,13 +1,13 @@
 var exec = require('cordova/exec');
 
 exports.login = function (success, error) {
-  exec(success, error, 'OneWelcomePlugin', 'login', []);
+  exec(success, error, 'OWMobilePlugin', 'login', []);
 };
 
 exports.logout = function (success, error) {
-  exec(success, error, 'OneWelcomePlugin', 'logout', []);
+  exec(success, error, 'OWMobilePlugin', 'logout', []);
 };
 
 exports.register = function (success, error) {
-  exec(success, error, 'OneWelcomePlugin', 'register', []);
+  exec(success, error, 'OWMobilePlugin', 'register', []);
 };

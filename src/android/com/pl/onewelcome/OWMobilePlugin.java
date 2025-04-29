@@ -33,7 +33,7 @@ public class OWMobilePlugin extends CordovaPlugin {
 
   private void login(CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
-    Log.d("OneWelcomePlugin", "Login method called!");
+    Log.d("OWMobilePlugin", "Login method called!");
     Toast.makeText(cordova.getActivity(), "Cordova login triggered", Toast.LENGTH_SHORT).show();
 
     callbackContext.success("Login triggered from native Android!");

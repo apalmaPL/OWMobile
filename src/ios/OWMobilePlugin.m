@@ -5,23 +5,34 @@
 @interface OWMobilePlugin : CDVPlugin {
   // Member variables go here.
 }
-
-- (void)coolMethod:(CDVInvokedUrlCommand*)command;
+- (void)login:(CDVInvokedUrlCommand*)command;
+- (void)logout:(CDVInvokedUrlCommand*)command;
+- (void)register:(CDVInvokedUrlCommand*)command;
 @end
 
 @implementation OWMobilePlugin
 
-- (void)coolMethod:(CDVInvokedUrlCommand*)command
+- (void)login:(CDVInvokedUrlCommand*)command
 {
-    CDVPluginResult* pluginResult = nil;
-    NSString* echo = [command.arguments objectAtIndex:0];
+  // TODO: Integrate OneWelcome iOS SDK login here
 
-    if (echo != nil && [echo length] > 0) {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-    }
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Login triggered from native iOS!"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
 
+- (void)logout:(CDVInvokedUrlCommand*)command
+{
+  // TODO: Integrate OneWelcome iOS SDK logout here
+
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Logout triggered from native iOS!"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)register:(CDVInvokedUrlCommand*)command
+{
+  // TODO: Integrate OneWelcome iOS SDK register here
+
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Register triggered from native iOS!"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 

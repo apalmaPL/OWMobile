@@ -9,8 +9,8 @@
     </js-module>
   
     <platform name="android">
-        <source-file src="src/android/OWMobilePlugin.java"
-            target-dir="src/cordova/plugins" />
+        <source-file src="src/android/ow/plugins/OWMobilePlugin.java"
+            target-dir="src/ow/plugins" />
     </platform>
   
     <platform name="ios">

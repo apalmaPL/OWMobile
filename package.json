@@ -1,9 +1,10 @@
 {
-  "name": "cordova-ow-plugin",
+  "name": "cordova.plugins.onewelcome",
+  "cordova_name": "Diagnostic",
   "version": "1.0.0",
   "description": "OW sdk for mobile.",
   "cordova": {
-    "id": "cordova-ow-plugin",
+    "id": "cordova.plugins.onewelcome",
     "platforms": [
       "android",
       "ios"

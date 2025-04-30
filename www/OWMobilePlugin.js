@@ -8,7 +8,7 @@ var OWMobilePlugin = (function(){
      * @param successCallback
      * @param errorCallback
      */
-    OWMobilePlugin.prototype.login = function(successCallback, errorCallback) {
+    OWMobilePlugin.login = function(successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'login', []);
     };
     
@@ -17,7 +17,7 @@ var OWMobilePlugin = (function(){
      * @param successCallback
      * @param errorCallback
      */
-    OWMobilePlugin.prototype.logout = function(successCallback, errorCallback) {
+    OWMobilePlugin.logout = function(successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'logout', []);
     };
     
@@ -28,7 +28,7 @@ var OWMobilePlugin = (function(){
      * @param successCallback
      * @param errorCallback
      */
-    OWMobilePlugin.prototype.register = function(username, password, successCallback, errorCallback) {
+    OWMobilePlugin.register = function(username, password, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'register', [username, password]);
     };
         

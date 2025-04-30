@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-ow-plugin" version="1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+<plugin id="com.productleague.onewelcome" version="1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>OWMobilePlugin</name>
     
@@ -8,8 +8,8 @@
     </js-module>
   
     <platform name="android">
-        <source-file src="src/android/com/pl/onewelcome/OWMobilePlugin.java"
-            target-dir="src/com/pl/onewelcome/" />
+        <source-file src="src/android/com/productleague/onewelcome/OWMobilePlugin.java"
+            target-dir="src/com/productleague/onewelcome/" />
     </platform>
   
     <platform name="ios">

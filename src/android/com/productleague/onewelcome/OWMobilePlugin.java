@@ -1,4 +1,4 @@
-package com.productlleague.onewelcome;
+package com.productleague.onewelcome;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;

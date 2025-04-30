@@ -10,7 +10,7 @@
   
     <platform name="android">
         <source-file src="src/android/OWMobilePlugin.java"
-            target-dir="src" />
+            target-dir="src/cordova/plugins" />
     </platform>
   
     <platform name="ios">

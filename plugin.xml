@@ -20,7 +20,7 @@
                 <param name="android-package" value="ow.plugins.OWMobilePlugin"/>
             </feature>
         </config-file>
-        <source-file src="src/android/OWMobilePlugin.java" target-dir="src/ow/plugins" />
+        <source-file src="src/android/ow/plugins/OWMobilePlugin.java" target-dir="src/ow/plugins" />
     </platform>
     <platform name="ios">
         <source-file src="src/ios/OWMobilePlugin.m" />

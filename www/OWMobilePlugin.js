@@ -1,44 +1,38 @@
-
-var OWMobilePlugin = (function(){
-    
-    var OWMobilePlugin = {};
-
-    /**
-     * login using OW
-     * @param successCallback
-     * @param errorCallback
-     */
-    OWMobilePlugin.login = function(successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'login', []);
-    };
-    
-    /**
-     * logout using OW
-     * @param successCallback
-     * @param errorCallback
-     */
-    OWMobilePlugin.logout = function(successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'logout', []);
-    };
-    
-    /**
-     * register using OW
-     * @param username
-     * @param password
-     * @param successCallback
-     * @param errorCallback
-     */
-    OWMobilePlugin.register = function(username, password, successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'register', [username, password]);
-    };
-        
-    
-    return OWMobilePlugin;
-});
+// Empty constructor
+function OWMobilePlugin() {}
 
 
-/**
- * export default OWMobilePlugin
- * @type {OWMobilePlugin}
- */
-module.exports = new OWMobilePlugin();
+OWMobilePlugin.prototype.login = function(username, password, successCallback, errorCallback) {
+  var options = {};
+  options.username = username;
+  options.password = password;
+  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'login', [options]);
+}
+
+
+OWMobilePlugin.prototype.logout = function(username, successCallback, errorCallback) {
+  var options = {};
+  options.username = username;
+  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'logout', [options]);
+}
+
+
+OWMobilePlugin.prototype.register = function(username, password, successCallback, errorCallback) {
+  var options = {};
+  options.username = username;
+  options.password = password;
+  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'register', [options]);
+}
+
+
+
+// Installation constructor that binds ToastyPlugin to window
+ToastyPlugin.install = function() {
+  if (!window.plugins) {
+    window.plugins = {};
+  }
+  window.plugins.OWMobilePlugin = new OWMobilePlugin();
+  return window.plugins.OWMobilePlugin;
+};
+
+cordova.addConstructor(OWMobilePlugin.install);

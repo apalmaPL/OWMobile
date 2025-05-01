@@ -1,19 +1,30 @@
-<?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova.plugins.onewelcome" 
-    version="1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-onewelcome" version="0.0.1">
     <name>OWMobilePlugin</name>
-    
-    <js-module name="OWMobilePlugin" src="www/OWMobilePlugin.js">
-        <clobbers target="OWMobilePlugin" />
+    <description>An Android Cordova plugin that allows to use the OW mobile SDK.</description>
+    <license>MIT</license>
+    <keywords>cordova,android,onewelcome</keywords>
+    <repo>https://github.com/apalmaPL/OWMobile.git</repo>
+    <issue>https://github.com/apalmaPL/OWMobile.git/issues</issue>
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+    <js-module src="www/OWMobilePlugin.js" name="OWMobilePlugin">
+        <clobbers target="window.plugins.OWMobilePlugin" />
     </js-module>
-  
     <platform name="android">
-        <source-file src="src/android/ow/plugins/OWMobilePlugin.java"
-            target-dir="src/ow/plugins" />
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="OWMobilePlugin">
+                <param name="android-package" value="ow.plugins.OWMobilePlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/OWMobilePlugin.java" target-dir="src/ow/plugins" />
     </platform>
-  
     <platform name="ios">
         <source-file src="src/ios/OWMobilePlugin.m" />
     </platform>
 </plugin>
+
+

@@ -31,26 +31,45 @@ public class OWMobilePlugin extends CordovaPlugin {
     return false;
   }
 
-  private void login(CallbackContext callbackContext) {
+  private void login(JSONArray args, CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
-    Log.d("OWMobilePlugin", "Login method called!");
-    Toast.makeText(cordova.getActivity(), "Cordova login triggered", Toast.LENGTH_SHORT).show();
+    final String username = args.getString(0);
+    final String password = args.getString(1);
 
+
+    
+    this.logMessage("OW login triggered: " + username, true);
     callbackContext.success("Login triggered from native Android!");
   }
 
-  private void logout(CallbackContext callbackContext) {
+  private void logout(JSONArray args, CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
+    final String username = args.getString(0);
+
+    
+    this.logMessage("OW logout triggered: " + username, true);
     callbackContext.success("Logout triggered from native Android!");
-
   }
 
-  private void register(CallbackContext callbackContext) {
+  private void register(JSONArray args, CallbackContext callbackContext) {
     // TODO: Integrate OneWelcome Android SDK login here
-    callbackContext.success("Register triggered from native Android!");
+    final String username = args.getString(0);
+    final String password = args.getString(1);
 
+
+
+    
+    this.logMessage("OW register triggered. Username:"+username+" Password:"+password, true);
+    callbackContext.success("Register triggered from native Android!");
   }
 
+
+  
+private void logMessage(String message, Boolean isShowToast){
+    Log.d("OWMobilePlugin", message);
+    if(isShowToast)
+      Toast.makeText(cordova.getActivity(), message, Toast.LENGTH_SHORT).show();
+}
   
 
 }

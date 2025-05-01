@@ -26,8 +26,8 @@ OWMobilePlugin.prototype.register = function(username, password, successCallback
 
 
 
-// Installation constructor that binds ToastyPlugin to window
-ToastyPlugin.install = function() {
+// Installation constructor that binds OWMobilePlugin to window
+OWMobilePlugin.install = function() {
   if (!window.plugins) {
     window.plugins = {};
   }

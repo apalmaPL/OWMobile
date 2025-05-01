@@ -20,11 +20,11 @@ public class OWMobilePlugin extends CordovaPlugin {
       this.login(callbackContext);
       return true;
     }
-    if ("logout".equals(action)) {
+    else if ("logout".equals(action)) {
       this.logout(callbackContext);
       return true;
     }
-    if ("register".equals(action)) {
+    else if ("register".equals(action)) {
       this.register(callbackContext);
       return true;
     }

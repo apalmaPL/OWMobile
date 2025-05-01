@@ -32,35 +32,57 @@ public class OWMobilePlugin extends CordovaPlugin {
   }
 
   private void login(JSONArray args, CallbackContext callbackContext) {
-    // TODO: Integrate OneWelcome Android SDK login here
-    final String username = args.getString(0);
-    final String password = args.getString(1);
 
+    try{
+      // TODO: Integrate OneWelcome Android SDK login here
+      final String username = args.getString(0);
+      final String password = args.getString(1);
+  
+  
+      
+      this.logMessage("OW login triggered: " + username, true);
+      callbackContext.success("Login triggered from native Android!");
 
+    }
+    catch(JSONException e) {
+      callbackContext.error("JSON parsing error");
+    }
     
-    this.logMessage("OW login triggered: " + username, true);
-    callbackContext.success("Login triggered from native Android!");
   }
 
   private void logout(JSONArray args, CallbackContext callbackContext) {
-    // TODO: Integrate OneWelcome Android SDK login here
-    final String username = args.getString(0);
 
-    
-    this.logMessage("OW logout triggered: " + username, true);
-    callbackContext.success("Logout triggered from native Android!");
+    try{
+      // TODO: Integrate OneWelcome Android SDK login here
+      final String username = args.getString(0);
+  
+      
+      this.logMessage("OW logout triggered: " + username, true);
+      callbackContext.success("Logout triggered from native Android!");
+
+    }
+      catch(JSONException e) {
+        callbackContext.error("JSON parsing error");
+    }
   }
 
   private void register(JSONArray args, CallbackContext callbackContext) {
-    // TODO: Integrate OneWelcome Android SDK login here
-    final String username = args.getString(0);
-    final String password = args.getString(1);
 
+    try{
+      // TODO: Integrate OneWelcome Android SDK login here
+      final String username = args.getString(0);
+      final String password = args.getString(1);
+  
+  
+  
+      
+      this.logMessage("OW register triggered. Username:"+username+" Password:"+password, true);
+      callbackContext.success("Register triggered from native Android!");
 
-
-    
-    this.logMessage("OW register triggered. Username:"+username+" Password:"+password, true);
-    callbackContext.success("Register triggered from native Android!");
+    }
+      catch(JSONException e) {
+        callbackContext.error("JSON parsing error");
+    }
   }
 
 

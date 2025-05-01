@@ -3,25 +3,17 @@ function OWMobilePlugin() {}
 
 
 OWMobilePlugin.prototype.login = function(username, password, successCallback, errorCallback) {
-  var options = {};
-  options.username = username;
-  options.password = password;
-  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'login', [options]);
+  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'login', [username,password]);
 }
 
 
 OWMobilePlugin.prototype.logout = function(username, successCallback, errorCallback) {
-  var options = {};
-  options.username = username;
-  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'logout', [options]);
+  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'logout', [username]);
 }
 
 
 OWMobilePlugin.prototype.register = function(username, password, successCallback, errorCallback) {
-  var options = {};
-  options.username = username;
-  options.password = password;
-  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'register', [options]);
+  cordova.exec(successCallback, errorCallback, 'OWMobilePlugin', 'register', [username,password]);
 }
 
 

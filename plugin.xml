@@ -3,17 +3,18 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-onewelcome" version="0.0.1">
     <name>OWMobilePlugin</name>
-    <description>An Android Cordova plugin that allows to use the OW mobile SDK.</description>
+    <description>A Cordova plugin that allows to use the OW mobile SDK.</description>
     <license>MIT</license>
-    <keywords>cordova,android,onewelcome</keywords>
+    <keywords>cordova,android,ios,mobile sdk,onewelcome</keywords>
     <repo>https://github.com/apalmaPL/OWMobile.git</repo>
-    <issue>https://github.com/apalmaPL/OWMobile.git/issues</issue>
     <engines>
         <engine name="cordova" version=">=3.0.0"/>
     </engines>
+        
     <js-module src="www/OWMobilePlugin.js" name="OWMobilePlugin">
         <clobbers target="window.plugins.OWMobilePlugin" />
     </js-module>
+        
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="OWMobilePlugin">
@@ -22,9 +23,11 @@
         </config-file>
         <source-file src="src/android/ow/plugins/OWMobilePlugin.java" target-dir="src/ow/plugins" />
     </platform>
+        
     <platform name="ios">
         <source-file src="src/ios/OWMobilePlugin.m" />
     </platform>
+        
 </plugin>
 
 

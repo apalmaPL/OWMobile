@@ -17,15 +17,15 @@ public class OWMobilePlugin extends CordovaPlugin {
   @Override
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
     if ("login".equals(action)) {
-      this.login(callbackContext);
+      this.login(args, callbackContext);
       return true;
     }
     else if ("logout".equals(action)) {
-      this.logout(callbackContext);
+      this.logout(args, callbackContext);
       return true;
     }
     else if ("register".equals(action)) {
-      this.register(callbackContext);
+      this.register(args, callbackContext);
       return true;
     }
     return false;
